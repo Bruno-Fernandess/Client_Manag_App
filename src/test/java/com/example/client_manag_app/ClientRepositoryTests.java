@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.List;
 import java.util.Optional;
 
 @DataJpaTest
@@ -23,10 +24,10 @@ public class ClientRepositoryTests {
     @Test
     public void AddClientTest(){
         Client cl = new Client();
-        cl.setName("miguel");
+        cl.setName("miguel jose");
         cl.setAddress("Rua yy");
-        cl.setNif("888888888");
-        cl.setPhone_nr("933333333");
+        cl.setNif("888888889");
+        cl.setPhone_nr("933333334");
         repo.save(cl);
 
         //test
@@ -70,5 +71,27 @@ public class ClientRepositoryTests {
 
         //test
     }
+
+    @Test
+    public void GetClientByNIFTest(){
+        String client_nif = "888888889";
+        Client cl = repo.findClientByNif(client_nif);
+        System.out.println(cl);
+
+        //test
+
+    }
+
+    @Test
+    public void GetClientsWithNameTest(){
+        String client_name = "miguel";
+        List<Client> cl_lst = repo.findAllByNameContaining(client_name);
+        System.out.println(cl_lst);
+
+        //test
+
+    }
+
+
 
 }
