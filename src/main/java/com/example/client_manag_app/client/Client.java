@@ -64,4 +64,39 @@ public class Client {
     public void setPhone_nr(String phone_nr) {
         this.phone_nr = phone_nr;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", nif='" + nif + '\'' +
+                ", address='" + address + '\'' +
+                ", phone_nr='" + phone_nr + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Client client = (Client) o;
+
+        if (!id.equals(client.id)) return false;
+        if (!name.equals(client.name)) return false;
+        if (!nif.equals(client.nif)) return false;
+        if (!address.equals(client.address)) return false;
+        return phone_nr.equals(client.phone_nr);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + nif.hashCode();
+        result = 31 * result + address.hashCode();
+        result = 31 * result + phone_nr.hashCode();
+        return result;
+    }
 }
