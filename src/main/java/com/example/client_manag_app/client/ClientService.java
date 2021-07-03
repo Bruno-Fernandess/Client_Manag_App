@@ -20,8 +20,9 @@ public class ClientService {
         repo.deleteById(id);
     }
 
-    public void save(Client cl) {
+    public Client save(Client cl) {
         repo.save(cl);
+        return cl;
     }
 
     public Client findById(Integer id){
@@ -34,7 +35,7 @@ public class ClientService {
     }
 
     public List<Client> getClientsWithName(String name){
-        return repo.findAllByNameContains(name);
+        return repo.findAllByNameContaining(name);
     }
 
 }

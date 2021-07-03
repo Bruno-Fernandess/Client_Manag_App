@@ -7,6 +7,6 @@ import java.util.List;
 public interface ClientRepository extends CrudRepository<Client,Integer> {
 
 public Client findClientByNif(String nif);
-public List<Client> findAllByNameContains(String name);
+public List<Client> findAllByNameContaining(String name);
 
 }
