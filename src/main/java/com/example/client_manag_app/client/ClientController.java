@@ -11,10 +11,11 @@ import java.util.List;
 //@RequestMapping("/api")
 public class ClientController {
 
-    @Autowired ClientRepository repo;
+    //@Autowired ClientRepository repo;
+    @Autowired ClientService service;
 
     @GetMapping("/clients")
     public List<Client> getAllClients() {
-        return (List<Client>) repo.findAll();
+        return (List<Client>) service.findAll();
     }
 }
